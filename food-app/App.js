@@ -8,7 +8,7 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { DrawerActions, NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -20,12 +20,36 @@ import Search from "./screens/Search";
 import Home from "./screens/Home";
 import Favourites from "./screens/Favourites";
 import Profile from "./screens/Profile";
+import Details from "./screens/Details";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 Entypo.loadFont();
 Feather.loadFont();
+
+function Root({ navigation }) {
+  <Drawer.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: "#FFF",
+      },
+      headerTintColor: "#000",
+    }}
+  >
+    <Drawer.Screen
+      name="Home"
+      component={Home}
+      options={{ headerShown: false }}
+    />
+
+    <Drawer.Screen
+      name="Details"
+      component={Details}
+      options={{ headerShown: false }}
+    />
+  </Drawer.Navigator>;
+}
 
 export default function App() {
   return (
