@@ -15,7 +15,7 @@ import {
 import Feather from "react-native-vector-icons/Feather";
 import Avatar from "../assets/avatar-icon.png";
 
-// import popularData from "../assets/data/popularData";
+import popularData from "../assets/data/popularData";
 // import trendingData from "../assets/data/trendingData";
 
 // import DrawerNavigation from "./DrawerNavigation";
@@ -34,10 +34,10 @@ function Home({ navigation }) {
       >
         <ImageBackground
           source={item.image}
-          style={[
-            styles.popularItem,
-            { marginLeft: item.id === "popular-data-1" ? 20 : 0 },
-          ]}
+          //   style={[
+          //     styles.popularItem,
+          //     { marginLeft: item.id === "popular-data-1" ? 20 : 0 },
+          //   ]}
           imageStyle={styles.popularItemImage}
         ></ImageBackground>
         <Text style={styles.popularItemTitle}>{item.title}</Text>
@@ -63,6 +63,19 @@ function Home({ navigation }) {
           <ImageBackground source={Avatar} style={styles.avatar} />
         </View>
       </View>
+
+      <View style={styles.popularWrapper}>
+        <Text style={styles.popularItemTitle}>Popular</Text>
+        <View style={styles.popularItemsWrapper}>
+          <FlatList
+            data={popularData}
+            renderItem={renderPopular}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+      </View>
     </View>
   );
 }
@@ -85,6 +98,9 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
+  popularWrapper: {},
+  popularItemTitle: {},
+  popularItemsWrapper: {},
 });
 
 export default Home;
