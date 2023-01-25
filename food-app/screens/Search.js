@@ -1,7 +1,20 @@
 import React from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  FlatList,
+  ImageBackground,
+  TouchableOpacity,
+} from "react-native";
 
 function Search() {
-  return <div>Search</div>;
+  return (
+    <View>
+      <Text>Search</Text>
+    </View>
+  );
 }
 
 export default Search;
