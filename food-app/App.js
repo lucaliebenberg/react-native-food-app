@@ -13,6 +13,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import Entypo from "react-native-vector-icons/Entypo";
+import Feather from "react-native-vector-icons/Feather";
 
 // screen imports
 import Search from "./screens/Search";
@@ -24,6 +25,7 @@ const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 Entypo.loadFont();
+Feather.loadFont();
 
 export default function App() {
   return (
@@ -31,8 +33,8 @@ export default function App() {
       <Tab.Navigator
         screenOptions={{
           style: styles.tabBar,
-          tabBarActiveTintColor: "black",
-          tabBarInactiveTintColor: "black",
+          tabBarActiveTintColor: "#F4BB40",
+          tabBarInactiveTintColor: "#D1D3D2",
           tabBarShowLabel: false,
           tabBarStyle: [
             {
@@ -46,7 +48,9 @@ export default function App() {
           name="home"
           component={Home}
           options={{
-            tabBarIcon: () => <Entypo name="home" size={32} color="black" />,
+            tabBarIcon: ({ color }) => (
+              <Feather name="home" size={32} color={color} />
+            ),
             headerShown: false,
           }}
         />
@@ -54,7 +58,9 @@ export default function App() {
           name="search"
           component={Search}
           options={{
-            tabBarIcon: () => <Entypo name="globe" size={32} color="black" />,
+            tabBarIcon: ({ color }) => (
+              <Feather name="search" size={32} color={color} />
+            ),
             headerShown: false,
           }}
         />
@@ -62,7 +68,9 @@ export default function App() {
           name="favourites"
           component={Favourites}
           options={{
-            tabBarIcon: () => <Entypo name="heart" size={32} color="black" />,
+            tabBarIcon: ({ color }) => (
+              <Feather name="heart" size={32} color={color} />
+            ),
             headerShown: false,
           }}
         />
@@ -70,7 +78,9 @@ export default function App() {
           name="profile"
           component={Profile}
           options={{
-            tabBarIcon: () => <Entypo name="user" size={32} color="black" />,
+            tabBarIcon: ({ color }) => (
+              <Feather name="user" size={32} color={color} />
+            ),
             headerShown: false,
           }}
         />
