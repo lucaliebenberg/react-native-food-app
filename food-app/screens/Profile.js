@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  SafeAreaView,
   ScrollView,
   FlatList,
   ImageBackground,
@@ -12,9 +13,17 @@ import {
 function Profile() {
   return (
     <View>
-      <Text>Profile</Text>
+      <SafeAreaView>
+        <Text>Profile</Text>
+      </SafeAreaView>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});
 
 export default Profile;
