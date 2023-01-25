@@ -10,11 +10,17 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import Feather from "react-native-vector-icons/Feather";
+// import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import Feather from "react-native-vector-icons/Feather";
 import Avatar from "../assets/avatar-icon.png";
 
+// import popularData from "../assets/data/popularData";
+// import trendingData from "../assets/data/trendingData";
+
 Feather.loadFont();
+
+// const Drawer = createDrawerNavigator();
 
 function Home() {
   return (
