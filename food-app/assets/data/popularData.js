@@ -8,13 +8,13 @@ const popularData = [
   {
     id: "popular-data-2",
     title: "Meal 2",
-    image: require("../images/popular1.jpg"),
+    image: require("../images/popular2.jpg"),
     price: 15,
   },
   {
     id: "popular-data-3",
     title: "Meal 3",
-    image: require("../images/popular1.jpg"),
+    image: require("../images/popular3.jpg"),
     price: 25,
   },
 ];

@@ -19,16 +19,39 @@ import Feather from "react-native-vector-icons/Feather";
 import Avatar from "../assets/avatar-icon.png";
 
 import popularData from "../assets/data/popularData";
-// import trendingData from "../assets/data/trendingData";
+import trendingData from "../assets/data/trendingData";
 
 // import DrawerNavigation from "./DrawerNavigation";
 
-Feather.loadFont();
-
 // const Drawer = createDrawerNavigator();
+
+Feather.loadFont();
 
 function Home({ navigation }) {
   const renderPopular = ({ item }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          console.log(item);
+        }}
+      >
+        <ImageBackground
+          source={item.image}
+          style={[
+            styles.popularItem,
+            { marginLeft: item.id === "popular-data-1" ? 20 : 0 },
+          ]}
+          imageStyle={styles.popularItemImage}
+        ></ImageBackground>
+        <Text style={styles.popularItemTitle}>{item.title}</Text>
+        <View style={styles.popularItemPriceWrapper}>
+          <Text style={styles.popularItemPrice}>R {item.price}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+  const renderTrending = ({ item }) => {
     return (
       <TouchableOpacity
         onPress={() => {
@@ -69,12 +92,27 @@ function Home({ navigation }) {
         </View>
       </SafeAreaView>
 
+      {/* Popular items */}
       <View style={styles.popularWrapper}>
         <Text style={styles.popularTitle}>Popular</Text>
         <View style={styles.popularItemsWrapper}>
           <FlatList
             data={popularData}
             renderItem={renderPopular}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+      </View>
+
+      {/* Trending items */}
+      <View style={styles.trendingWrapper}>
+        <Text style={styles.trendingTitle}>Trending</Text>
+        <View style={styles.trendingItemsWrapper}>
+          <FlatList
+            data={trendingData}
+            renderItem={renderTrending}
             keyExtractor={(item) => item.id}
             horizontal
             showsHorizontalScrollIndicator={false}
@@ -105,7 +143,7 @@ const styles = StyleSheet.create({
   },
   // popular styling
   popularWrapper: {
-    marginTop: 0,
+    marginTop: 20,
   },
   popularTitle: {
     marginHorizontal: 20,
@@ -139,6 +177,20 @@ const styles = StyleSheet.create({
   },
   popularItemPrice: {
     fontSize: 16,
+  },
+  //   trending styling
+  trendingWrapper: {
+    flexDirection: "column",
+    marginTop: 40,
+  },
+  trendingTitle: {
+    marginHorizontal: 20,
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "black",
+  },
+  trendingItemsWrapper: {
+    padding: 20,
   },
 });
 
