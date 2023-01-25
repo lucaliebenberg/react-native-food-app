@@ -34,15 +34,15 @@ function Home({ navigation }) {
       >
         <ImageBackground
           source={item.image}
-          //   style={[
-          //     styles.popularItem,
-          //     { marginLeft: item.id === "popular-data-1" ? 20 : 0 },
-          //   ]}
+          style={[
+            styles.popularItem,
+            { marginLeft: item.id === "popular-data-1" ? 20 : 0 },
+          ]}
           imageStyle={styles.popularItemImage}
         ></ImageBackground>
         <Text style={styles.popularItemTitle}>{item.title}</Text>
         <View style={styles.popularItemPriceWrapper}>
-          <Text style={styles.popularItemPrice}>{item.price}</Text>
+          <Text style={styles.popularItemPrice}>R {item.price}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -98,9 +98,35 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
   },
-  popularWrapper: {},
-  popularItemTitle: {},
-  popularItemsWrapper: {},
+  // popular styling
+  popularWrapper: {
+    marginTop: 20,
+  },
+  popularItemTitle: {
+    marginHorizontal: 20,
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "black",
+  },
+  popularItemsWrapper: {
+    flexDirection: "row",
+    marginTop: 20,
+  },
+  popularItem: {
+    width: 170,
+    height: 250,
+    justifyContent: "flex-end",
+    paddingHorizontal: 10,
+    paddingVertical: 15,
+    marginRight: 20,
+  },
+  popularItemImage: {
+    borderRadius: 10,
+  },
+  popularItemPriceWrapper: {
+    paddingHorizontal: 20,
+  },
+  popularItemPrice: {},
 });
 
 export default Home;

@@ -3,6 +3,7 @@ const popularData = [
     id: "popular-data-1",
     title: "Meal 1",
     image: require("../images/popular1.jpg"),
+    price: 18,
   },
   {
     id: "popular-data-2",
