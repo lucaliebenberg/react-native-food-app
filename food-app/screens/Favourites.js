@@ -14,7 +14,11 @@ function Favourites() {
   return (
     <View>
       <SafeAreaView>
-        <Text>Favourites</Text>
+        <View style={styles.container}>
+          <View style={styles.headerTextWrapper}>
+            <Text style={styles.headerText}>Favourites</Text>
+          </View>
+        </View>
       </SafeAreaView>
     </View>
   );
@@ -22,7 +26,16 @@ function Favourites() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    display: "flex",
+    padding: 20,
+  },
+  headerTextWrapper: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });
 
