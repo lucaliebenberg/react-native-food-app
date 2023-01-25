@@ -19,6 +19,9 @@ function Search() {
   return (
     <View>
       <View style={styles.headerTitle}>
+        <View style={styles.headerTextWrapper}>
+          <Text style={styles.headerText}>Search</Text>
+        </View>
         <TextInput
           style={styles.input}
           onChange={(text) => setSearch(text)}
@@ -34,6 +37,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: DimensionsStyle.safeAreaTopHeight,
+  },
+  headerTextWrapper: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  headerText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 40,
   },
   headerTitle: {
     fontSize: 16,

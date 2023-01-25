@@ -66,9 +66,9 @@ function Home({ navigation }) {
           ]}
           imageStyle={styles.popularItemImage}
         ></ImageBackground>
-        <Text style={styles.popularItemTitle}>{item.title}</Text>
-        <View style={styles.popularItemPriceWrapper}>
-          <Text style={styles.popularItemPrice}>R {item.price}</Text>
+        <Text style={styles.trendingItemTitle}>{item.title}</Text>
+        <View style={styles.trendingItemPriceWrapper}>
+          <Text style={styles.trendingItemPrice}>R {item.price}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -191,6 +191,18 @@ const styles = StyleSheet.create({
   },
   trendingItemsWrapper: {
     padding: 20,
+  },
+  trendingItemTitle: {
+    marginHorizontal: 5,
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "black",
+  },
+  trendingItemPriceWrapper: {
+    paddingHorizontal: 8,
+  },
+  trendingItemPrice: {
+    fontSize: 16,
   },
 });
 
