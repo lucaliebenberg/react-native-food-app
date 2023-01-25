@@ -32,7 +32,9 @@ function Home({ navigation }) {
     return (
       <TouchableOpacity
         onPress={() => {
-          console.log(item);
+          navigation.navigate("Details", {
+            item: item,
+          });
         }}
       >
         <ImageBackground
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
   popularItemPrice: {
     fontSize: 16,
   },
-  //   trending styling
+  // trending styling
   trendingWrapper: {
     flexDirection: "column",
     marginTop: 40,
