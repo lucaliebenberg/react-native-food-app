@@ -20,6 +20,7 @@ import Avatar from "../assets/avatar-icon.png";
 
 import popularData from "../assets/data/popularData";
 import trendingData from "../assets/data/trendingData";
+import categoriesData from "../assets/data/categoriesData";
 
 // import DrawerNavigation from "./DrawerNavigation";
 
@@ -28,6 +29,30 @@ import trendingData from "../assets/data/trendingData";
 Feather.loadFont();
 
 function Home({ navigation }) {
+  // render categories
+  const renderCategories = ({ item }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          navigation.navigate("Details", {
+            item: item,
+          });
+        }}
+      >
+        <ImageBackground
+          source={item.image}
+          style={[
+            styles.categoryItem,
+            { marginLeft: item.id === "category-data-1" ? 20 : 0 },
+          ]}
+          imageStyle={styles.categoryItemImage}
+        ></ImageBackground>
+        <Text style={styles.categoryItemTitle}>{item.title}</Text>
+      </TouchableOpacity>
+    );
+  };
+
+  // render popular data
   const renderPopular = ({ item }) => {
     return (
       <TouchableOpacity
@@ -53,6 +78,7 @@ function Home({ navigation }) {
     );
   };
 
+  // render trending data
   const renderTrending = ({ item }) => {
     return (
       <TouchableOpacity
@@ -94,6 +120,19 @@ function Home({ navigation }) {
         </View>
       </SafeAreaView>
 
+      {/* Category items */}
+      <View style={styles.categoryWrapper}>
+        <Text style={styles.categoryTitle}>Categories</Text>
+        <View style={styles.categoriesWrapper}>
+          <FlatList
+            data={categoriesData}
+            renderItem={renderCategories}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
+      </View>
       {/* Popular items */}
       <View style={styles.popularWrapper}>
         <Text style={styles.popularTitle}>Popular</Text>
@@ -131,18 +170,41 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingTop: DimensionsStyle.safeAreaTopHeight,
   },
+  // header styling
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
     padding: 20,
   },
+  // menu styling
   menu: {
     marginVertical: 5,
   },
+  // avatar styling
   avatar: {
     width: 40,
     height: 40,
   },
+
+  // category styling
+  categoryWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+  categoryItem: {},
+  categoryTitle: {
+    marginHorizontal: 20,
+    fontSize: 28,
+    fontWeight: "bold",
+  },
+  categoriesWrapper: {},
+  categoryItemImage: {},
+  categoryItemTitle: {
+    marginHorizontal: 22,
+    marginVertical: 20,
+  },
+
   // popular styling
   popularWrapper: {
     marginTop: 20,
