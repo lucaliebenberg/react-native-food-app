@@ -4,6 +4,7 @@ import {
   Text,
   View,
   ScrollView,
+  SafeAreaView,
   FlatList,
   Image,
   ImageBackground,
@@ -11,6 +12,8 @@ import {
 } from "react-native";
 
 // import { createDrawerNavigator } from "@react-navigation/drawer";
+
+import DimensionsStyle from "../assets/utils/DimensionsStyle";
 
 import Feather from "react-native-vector-icons/Feather";
 import Avatar from "../assets/avatar-icon.png";
@@ -50,22 +53,24 @@ function Home({ navigation }) {
 
   return (
     <View>
-      <View style={styles.header}>
-        <View style={styles.menu}>
-          <Feather
-            name="menu"
-            size={32}
-            color="black"
-            onPress={(navigation) => navigation.openDrawer()}
-          />
+      <SafeAreaView>
+        <View style={styles.header}>
+          <View style={styles.menu}>
+            <Feather
+              name="menu"
+              size={32}
+              color="black"
+              onPress={(navigation) => navigation.openDrawer()}
+            />
+          </View>
+          <View style={styles.avatar}>
+            <ImageBackground source={Avatar} style={styles.avatar} />
+          </View>
         </View>
-        <View style={styles.avatar}>
-          <ImageBackground source={Avatar} style={styles.avatar} />
-        </View>
-      </View>
+      </SafeAreaView>
 
       <View style={styles.popularWrapper}>
-        <Text style={styles.popularItemTitle}>Popular</Text>
+        <Text style={styles.popularTitle}>Popular</Text>
         <View style={styles.popularItemsWrapper}>
           <FlatList
             data={popularData}
@@ -84,15 +89,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: "center",
+    paddingTop: DimensionsStyle.safeAreaTopHeight,
   },
   header: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 30,
-    paddingVertical: 80,
+    padding: 20,
   },
   menu: {
-    paddingVertical: 5,
+    marginVertical: 5,
   },
   avatar: {
     width: 40,
@@ -100,7 +105,13 @@ const styles = StyleSheet.create({
   },
   // popular styling
   popularWrapper: {
-    marginTop: 20,
+    marginTop: 0,
+  },
+  popularTitle: {
+    marginHorizontal: 20,
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "black",
   },
   popularItemTitle: {
     marginHorizontal: 20,
@@ -113,8 +124,8 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   popularItem: {
-    width: 170,
-    height: 250,
+    width: 220,
+    height: 180,
     justifyContent: "flex-end",
     paddingHorizontal: 10,
     paddingVertical: 15,
@@ -126,7 +137,9 @@ const styles = StyleSheet.create({
   popularItemPriceWrapper: {
     paddingHorizontal: 20,
   },
-  popularItemPrice: {},
+  popularItemPrice: {
+    fontSize: 16,
+  },
 });
 
 export default Home;
