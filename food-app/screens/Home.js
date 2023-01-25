@@ -18,16 +18,46 @@ import Avatar from "../assets/avatar-icon.png";
 // import popularData from "../assets/data/popularData";
 // import trendingData from "../assets/data/trendingData";
 
+// import DrawerNavigation from "./DrawerNavigation";
+
 Feather.loadFont();
 
 // const Drawer = createDrawerNavigator();
 
-function Home() {
+function Home({ navigation }) {
+  const renderPopular = ({ item }) => {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          console.log(item);
+        }}
+      >
+        <ImageBackground
+          source={item.image}
+          style={[
+            styles.popularItem,
+            { marginLeft: item.id === "popular-data-1" ? 20 : 0 },
+          ]}
+          imageStyle={styles.popularItemImage}
+        ></ImageBackground>
+        <Text style={styles.popularItemTitle}>{item.title}</Text>
+        <View style={styles.popularItemPriceWrapper}>
+          <Text style={styles.popularItemPrice}>{item.price}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <View>
       <View style={styles.header}>
         <View style={styles.menu}>
-          <Feather name="menu" size={32} color="black" />
+          <Feather
+            name="menu"
+            size={32}
+            color="black"
+            onPress={(navigation) => navigation.openDrawer()}
+          />
         </View>
         <View style={styles.avatar}>
           <ImageBackground source={Avatar} style={styles.avatar} />
