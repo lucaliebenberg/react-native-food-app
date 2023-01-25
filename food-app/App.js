@@ -28,11 +28,52 @@ Entypo.loadFont();
 export default function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="home" component={Home} />
-        <Tab.Screen name="search" component={Search} />
-        <Tab.Screen name="favourites" component={Favourites} />
-        <Tab.Screen name="profile" component={Profile} />
+      <Tab.Navigator
+        screenOptions={{
+          style: styles.tabBar,
+          tabBarActiveTintColor: "black",
+          tabBarInactiveTintColor: "black",
+          tabBarShowLabel: false,
+          tabBarStyle: [
+            {
+              display: "flex",
+            },
+            null,
+          ],
+        }}
+      >
+        <Tab.Screen
+          name="home"
+          component={Home}
+          options={{
+            tabBarIcon: () => <Entypo name="home" size={32} color="black" />,
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="search"
+          component={Search}
+          options={{
+            tabBarIcon: () => <Entypo name="globe" size={32} color="black" />,
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="favourites"
+          component={Favourites}
+          options={{
+            tabBarIcon: () => <Entypo name="heart" size={32} color="black" />,
+            headerShown: false,
+          }}
+        />
+        <Tab.Screen
+          name="profile"
+          component={Profile}
+          options={{
+            tabBarIcon: () => <Entypo name="user" size={32} color="black" />,
+            headerShown: false,
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
