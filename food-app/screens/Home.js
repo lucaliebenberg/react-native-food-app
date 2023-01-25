@@ -104,62 +104,64 @@ function Home({ navigation }) {
 
   return (
     <View>
-      <SafeAreaView>
-        <View style={styles.header}>
-          <View style={styles.menu}>
-            <Feather
-              name="menu"
-              size={32}
-              color="black"
-              onPress={(navigation) => navigation.openDrawer()}
+      <ScrollView>
+        <SafeAreaView>
+          <View style={styles.header}>
+            <View style={styles.menu}>
+              <Feather
+                name="menu"
+                size={32}
+                color="black"
+                onPress={(navigation) => navigation.openDrawer()}
+              />
+            </View>
+            <View style={styles.avatar}>
+              <ImageBackground source={Avatar} style={styles.avatar} />
+            </View>
+          </View>
+        </SafeAreaView>
+
+        {/* Category items */}
+        <View style={styles.categoryWrapper}>
+          <Text style={styles.categoryTitle}>Categories</Text>
+          <View style={styles.categoriesWrapper}>
+            <FlatList
+              data={categoriesData}
+              renderItem={renderCategories}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
             />
           </View>
-          <View style={styles.avatar}>
-            <ImageBackground source={Avatar} style={styles.avatar} />
+        </View>
+        {/* Popular items */}
+        <View style={styles.popularWrapper}>
+          <Text style={styles.popularTitle}>Popular</Text>
+          <View style={styles.popularItemsWrapper}>
+            <FlatList
+              data={popularData}
+              renderItem={renderPopular}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
           </View>
         </View>
-      </SafeAreaView>
 
-      {/* Category items */}
-      <View style={styles.categoryWrapper}>
-        <Text style={styles.categoryTitle}>Categories</Text>
-        <View style={styles.categoriesWrapper}>
-          <FlatList
-            data={categoriesData}
-            renderItem={renderCategories}
-            keyExtractor={(item) => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
+        {/* Trending items */}
+        <View style={styles.trendingWrapper}>
+          <Text style={styles.trendingTitle}>Trending</Text>
+          <View style={styles.trendingItemsWrapper}>
+            <FlatList
+              data={trendingData}
+              renderItem={renderTrending}
+              keyExtractor={(item) => item.id}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
         </View>
-      </View>
-      {/* Popular items */}
-      <View style={styles.popularWrapper}>
-        <Text style={styles.popularTitle}>Popular</Text>
-        <View style={styles.popularItemsWrapper}>
-          <FlatList
-            data={popularData}
-            renderItem={renderPopular}
-            keyExtractor={(item) => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-      </View>
-
-      {/* Trending items */}
-      <View style={styles.trendingWrapper}>
-        <Text style={styles.trendingTitle}>Trending</Text>
-        <View style={styles.trendingItemsWrapper}>
-          <FlatList
-            data={trendingData}
-            renderItem={renderTrending}
-            keyExtractor={(item) => item.id}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }

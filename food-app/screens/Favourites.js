@@ -18,6 +18,11 @@ function Favourites() {
           <View style={styles.headerTextWrapper}>
             <Text style={styles.headerText}>Favourites</Text>
           </View>
+          <View style={styles.favouritesWrapper}>
+            <Text style={styles.favouritesText}>
+              You currently do not have any favourites
+            </Text>
+          </View>
         </View>
       </SafeAreaView>
     </View>
@@ -36,6 +41,19 @@ const styles = StyleSheet.create({
   headerText: {
     fontSize: 20,
     fontWeight: "bold",
+  },
+  // favourites styling
+  favouritesWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  favouritesText: {
+    fontSize: 16,
+    color: "grey",
+    marginTop: 60,
+    textAlign: "center",
   },
 });
 
