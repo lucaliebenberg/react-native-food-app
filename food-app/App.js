@@ -28,7 +28,7 @@ const Tab = createBottomTabNavigator();
 Entypo.loadFont();
 Feather.loadFont();
 
-function Root({ navigation }) {
+const Root = ({ navigation }) => {
   <Drawer.Navigator
     screenOptions={{
       headerStyle: {
@@ -49,7 +49,7 @@ function Root({ navigation }) {
       options={{ headerShown: false }}
     />
   </Drawer.Navigator>;
-}
+};
 
 export default function App() {
   return (

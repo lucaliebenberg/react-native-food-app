@@ -21,6 +21,7 @@ import Avatar from "../assets/avatar-icon.png";
 import popularData from "../assets/data/popularData";
 import trendingData from "../assets/data/trendingData";
 import categoriesData from "../assets/data/categoriesData";
+import { DrawerActions } from "@react-navigation/native";
 
 // import DrawerNavigation from "./DrawerNavigation";
 
@@ -28,16 +29,16 @@ import categoriesData from "../assets/data/categoriesData";
 
 Feather.loadFont();
 
-function Home({ navigation }) {
+const Home = ({ navigation }) => {
   // render categories
   const renderCategories = ({ item }) => {
     return (
       <TouchableOpacity
-        onPress={() => {
+        onPress={() =>
           navigation.navigate("Details", {
             item: item,
-          });
-        }}
+          })
+        }
       >
         <ImageBackground
           source={item.image}
@@ -55,13 +56,7 @@ function Home({ navigation }) {
   // render popular data
   const renderPopular = ({ item }) => {
     return (
-      <TouchableOpacity
-        onPress={() => {
-          navigation.navigate("Details", {
-            item: item,
-          });
-        }}
-      >
+      <TouchableOpacity onPress={() => {}}>
         <ImageBackground
           source={item.image}
           style={[
@@ -108,12 +103,11 @@ function Home({ navigation }) {
         <SafeAreaView>
           <View style={styles.header}>
             <View style={styles.menu}>
-              <Feather
-                name="menu"
-                size={32}
-                color="black"
-                onPress={(navigation) => navigation.openDrawer()}
-              />
+              <TouchableOpacity
+                onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+              >
+                <Feather name="menu" size={32} color="black" />
+              </TouchableOpacity>
             </View>
             <View style={styles.avatar}>
               <ImageBackground source={Avatar} style={styles.avatar} />
@@ -164,7 +158,7 @@ function Home({ navigation }) {
       </ScrollView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

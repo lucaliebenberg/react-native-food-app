@@ -14,7 +14,7 @@ import ProfileSource from "../assets/avatar-icon.png";
 
 import Feather from "react-native-vector-icons/Feather";
 
-function Profile() {
+const Profile = () => {
   return (
     <View>
       <SafeAreaView>
@@ -57,7 +57,7 @@ function Profile() {
       </SafeAreaView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

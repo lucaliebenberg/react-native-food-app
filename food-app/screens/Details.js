@@ -10,7 +10,7 @@ import {
 
 const height = Dimensions.get("window").height;
 
-function Details({ route, navigation }) {
+const Details = ({ route, navigation }) => {
   const { item } = route.params;
 
   return (
@@ -32,6 +32,6 @@ function Details({ route, navigation }) {
       </ImageBackground>
     </View>
   );
-}
+};
 
 export default Details;

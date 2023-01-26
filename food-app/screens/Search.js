@@ -13,7 +13,7 @@ import {
 
 import DimensionsStyle from "../assets/utils/DimensionsStyle";
 
-function Search() {
+const Search = () => {
   const [search, setSearch] = useState("");
 
   return (
@@ -31,7 +31,7 @@ function Search() {
       </View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

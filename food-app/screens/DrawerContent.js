@@ -14,7 +14,7 @@ import {
 
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-export function DrawerContent(props) {
+export const DrawerContent = (props) => {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   const toggleTheme = () => {
@@ -120,7 +120,7 @@ export function DrawerContent(props) {
       </Drawer.Section>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   drawerContent: {
